@@ -29,3 +29,11 @@ jobs:
       - name: Build
         working-directory: tasmota-cli/
         run: go build
+      - name: Create a Release
+        uses: actions/create-release@v1.1.4
+        with:
+          # The name of the tag. This should come from the webhook payload, `github.GITHUB_REF` when a user pushes a new tag
+          tag_name: github.GITHUB_REF
+          # The name of the release. For example, `Release v1.0.1`
+          release_name: github.GITHUB_REF
+          
